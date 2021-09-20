@@ -3,6 +3,47 @@ import logo from "./logo.svg";
 import "./App.css";
 import DisplayName from "./components/DisplayName";
 import MovieList from "./components/MovieList";
+import ClickCount from "./components/ClickCount";
+
+function handleClick(e) {
+  console.log(e.target.innerHTML);
+}
+function App() {
+  const MoviesWithKeys = [
+    { id: 1, name: "The Shawshank Redemption" },
+    { id: 2, name: "Fiction" },
+    { id: 3, name: "The Good the Bad the Ugly" },
+    { id: 4, name: "The Exorcist" },
+  ];
+
+  React.useEffect(() => {
+    console.log("App.js Mounted");
+  }, []);
+
+  const [switcher, setSwitcher] = React.useState(true);
+  return (
+    <div>
+      <h1>App.js</h1>
+      <button onClick={() => setSwitcher(!switcher)}>
+        Switch: {switcher.toString()}
+      </button>
+      <br />
+      {switcher ? (
+        <ClickCount />
+      ) : (
+        <MovieList
+          movies={MoviesWithKeys}
+          name={"by Arpit Anand"}
+          click={handleClick}
+        />
+      )}
+    </div>
+  );
+}
+
+export default App;
+
+//Extras
 
 //This the same way of doing that
 // class App extends React.Component {
@@ -16,26 +57,3 @@ import MovieList from "./components/MovieList";
 //     </div>)
 //   }
 // }
-function handleClick(e){
-  console.log(e.target.innerHTML)
-}
-//Use functional components over class based component as its easy though
-function App() {
-
-  //We can also create the JSON object here and then pass this as a prop to the function
-  const MoviesWithKeys = [
-    { id: 1, name: "The Shawshank Redemption" },
-    { id: 2, name: "Fiction" },
-    { id: 3, name: "The Good the Bad the Ugly" },
-    { id: 4, name: "The Exorcist" },
-  ];
-  return (
-    <div>
-      <h1>Hello</h1>
-      <DisplayName />
-      <MovieList movies={MoviesWithKeys} name={"by Arpit Anand"} click= {handleClick}/>
-    </div>
-  );
-}
-
-export default App;

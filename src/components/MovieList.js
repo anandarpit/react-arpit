@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 const MovieList = (props) => {
     // const Movies = [
     //     "The Shawshank Redemption",
@@ -22,6 +24,12 @@ const MovieList = (props) => {
     const movieList = props.movies.map((movie)=>{
         return <li key={movie.id} onClick={props.click}>{movie.name}</li>
     })
+
+    React.useEffect(() => {
+        console.log("MovieList.js closed");
+        return (()=>{console.log("Movie list is unmounted")})
+      }, []);
+
     return (
         <div>
             <h1 >

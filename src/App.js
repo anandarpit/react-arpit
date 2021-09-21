@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import DisplayName from "./components/DisplayName";
 import MovieList from "./components/MovieList";
@@ -8,6 +7,9 @@ import ClickCount from "./components/ClickCount";
 function handleClick(e) {
   console.log(e.target.innerHTML);
 }
+
+const TitleStyle = {backgroundColor: "maroon", color: "white"}
+
 function App() {
   const MoviesWithKeys = [
     { id: 1, name: "The Shawshank Redemption" },
@@ -20,10 +22,13 @@ function App() {
     console.log("App.js Mounted");
   }, []);
 
-  const [switcher, setSwitcher] = React.useState(true);
+  const [switcher, setSwitcher] = React.useState(false);
   return (
     <div>
-      <h1>App.js</h1>
+      <h1 style={TitleStyle}>App.js</h1>
+      <p>Irure aliqua eu voluptate ex non. Pariatur quis aliqua voluptate labore eu pariatur. Commodo laborum esse ipsum sit fugiat amet ea reprehenderit do incididunt quis sit laborum ut. Ipsum id duis deserunt ut occaecat elit elit incididunt nulla irure nostrud sint laborum.</p>
+      <p>In velit in adipisicing deserunt reprehenderit amet duis deserunt deserunt cupidatat aliquip ea. Velit duis id et occaecat. Eu occaecat in sint duis reprehenderit est dolore enim aliqua anim est magna non anim.</p>
+      <DisplayName/>
       <button onClick={() => setSwitcher(!switcher)}>
         Switch: {switcher.toString()}
       </button>

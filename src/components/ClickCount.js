@@ -1,20 +1,22 @@
 import React, { useState } from "react";
-import AxiosTest from "./AxiosTest"; 
+import AxiosTest from "./AxiosTest";
 
 const ClickCount = () => {
   const [count, setCount] = useState(0);
   const [speedometer, setSpeedometer] = useState(20);
 
   React.useEffect(() => {
-    console.log("ClickCount.js Mounted")
-    return (()=>{console.log("ClickCount is closed");})
-
+    console.log("ClickCount.js Mounted");
+    return () => {
+      console.log("ClickCount is closed");
+    };
   }, []);
 
   React.useEffect(() => {
-    console.log("Speedometer: " ,speedometer)
-    return (()=>{console.log("Speedmoeter click complete");})
-
+    console.log("Speedometer: ", speedometer);
+    return () => {
+      console.log("Speedometer click complete");
+    };
   }, [speedometer]); //This is dependency, usually pointing to a variable that changes
 
   function increaseCount() {
@@ -32,7 +34,7 @@ const ClickCount = () => {
       >
         Speedometer: {speedometer}
       </button>
-      <AxiosTest/>
+      <AxiosTest />
     </div>
   );
 };

@@ -16,7 +16,7 @@ const AxiosTest = () => {
           setTodo(response);
         })
         .catch((error) => {
-          setError(error);
+          setError(erro r);
         });
       console.log("I HAVE RUN");
     }
